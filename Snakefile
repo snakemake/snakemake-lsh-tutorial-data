@@ -48,7 +48,7 @@ rule bcftools_call:
     conda:
         "environment.yaml"
     shell:
-        "samtools mpileup -g -f {input.fa} {input.bam} | "
+        "bcftools mpileup -g -f {input.fa} {input.bam} | "
         "bcftools call -mv - > {output}"
 
 rule plot_quals:
